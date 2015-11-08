@@ -6,10 +6,35 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.btn-danger {
+			background-image: #f24452 !important
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			console.log('ready');
+			$.get('/test', function(){
+					// alert("hue");
+				})
+			.done(function(data){
+				// alert("second success");
+				for (var i = 0; i < data.length ; i++) {
+					var name = "#mesa" + data[i];
+					console.log(name);
+					$(name).addClass("btn-danger");
+				};
+				// $("#mesa1").addClass("btn-danger");
+			})
+			// setInterval(function(){
+
+			// }, 20000);
+		});
+	</script>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fix">
-	  <div class="container-fluid">
+	  <div class="container-fluid" style="background-color: #f24452">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -18,28 +43,59 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">Bar do Manuel</a>
+	      <a class="navbar-brand" href="#" style="color: white;">Bar do Manuel</a>
 	    </div>
 	  </div><!-- /.container-fluid -->
 	</nav>
 	<!-- <div class="row-fluid" style="margin-right: 500px"> -->
 		<div class="row">
-		  <div class="col-md-4">
+		  <div class="col-md-3">
 		  	<!-- <div class="mesa"> 1</div> -->
-		  	<button type="button" class="btn btn-primary" style="border-radius: 100px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 1</button>
+		  	<button id="mesa1" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 1</button>
 		  	</div>
-		  <div class="col-md-4">
+		  <div class="col-md-3">
 		  	<!-- <div class="mesa"> 2</div> -->
-		  	<button type="button" class="btn btn-danger" style="border-radius: 100px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 2</button>
+		  	<button id="mesa2" type="button" class="btn btn-danger center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 2</button>
 		  </div>
-		  <div class="col-md-4">
-		  	<button type="button" class="btn btn-danger" style="border-radius: 100px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 3</button>
+		  <div class="col-md-3">
+		  	<button id="mesa3" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 3</button>
+		  </div>
+  		  <div class="col-md-3">
+		  	<button id="mesa4" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 4</button>
 		  </div>
 		</div>
-		<!-- <div class="span4">
-			<h1>TESTE1</h1><br>
-			<div style="width: 200px; height: 200px; background-color: aquablue;"></div>
-		</div> -->
+		<div class="row">
+		  <div class="col-md-3">
+		  	<!-- <div class="mesa"> 1</div> -->
+		  	<button id="mesa5" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 5</button>
+		  	</div>
+		  <div class="col-md-3">
+		  	<!-- <div class="mesa"> 2</div> -->
+		  	<button id="mesa6" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 6</button>
+		  </div>
+		  <div class="col-md-3">
+		  	<button id="mesa7" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 7</button>
+		  </div>
+  		  <div class="col-md-3">
+		  	<button id="mesa8" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 8</button>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-3">
+		  	<!-- <div class="mesa"> 1</div> -->
+		  	<button id="mesa9" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 9</button>
+		  	</div>
+		  <div class="col-md-3">
+		  	<!-- <div class="mesa"> 2</div> -->
+		  	<button id="mesa10" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 10</button>
+		  </div>
+		  <div class="col-md-3">
+		  	<button id="mesa11" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 11</button>
+		  </div>
+  		  <div class="col-md-3">
+		  	<button id="mesa12" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 12</button>
+		  </div>
+		</div>
 	</div>
 
 	<!-- Modal -->
@@ -53,12 +109,24 @@
 	          <h4 class="modal-title"><%=mesa_id%></h4>
 	        </div>
 	        <div class="modal-body">
-	          <p>Chopp Brahma</p>
-	          <p>Chopp Brahma</p>
-	          <p>Chopp Brahma</p>
-	          <p>Chopp Brahma</p>
-	          <p>Chopp Brahma</p>
-	          <p>Chopp Brahma</p>
+	          <table class="table table-condensed">
+	          	<thead>
+	          		<tr>
+	          			<th>Pedido</th>
+	          			<th>Quantidade</th>
+	          		</tr>
+	          	</thead>
+	          	<tbody>
+	          		<tr class="danger">
+	          			<td>Chopp Brahma</td>
+	          			<td>10</td>
+	          		</tr>
+	          		<tr class="active">
+	          			<td>Guaraná Antartica</td>
+	          			<td>1</td>
+	          		</tr>
+	          	</tbody>
+	          </table>
 	        </div>
 	        <div class="modal-footer">
 	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

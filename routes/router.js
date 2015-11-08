@@ -15,13 +15,12 @@ module.exports = function(app){
 
         		if (!doc) {
 		            console.dir("No document found");
+		            res.end();
 		            return db.close();
 		        }
 
-		        var decipher = crypto.createDecipher(algorithm, doc['_id']);
-		        var decrypted = decipher.update(encrypted_message, 'hex', 'utf8') + decipher.final('utf8');
-		        console.log("Answer: " + decrypted);
-		        return db.close();
+		        res.end();
+				return db.close();
 		    });
 		});
 
@@ -56,6 +55,7 @@ module.exports = function(app){
 				if (err) throw err;
 
 		        console.log("Pedido feito");
+		        res.end();
 		        return db.close();
 			});
 		});
@@ -69,8 +69,8 @@ module.exports = function(app){
 	});
 	
 	app.get('/test', function(req, res){
-		res.render('index.ejs', {
-			name: req.query.name
-		});
+		console.log('ajax working');
+		var array = [1,2,3,4,5];
+		res.send(array);
 	});
 }
