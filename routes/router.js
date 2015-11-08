@@ -8,46 +8,104 @@ module.exports = function(app){
 		});
 	});
 	app.get('/check', function(req, res){
+		
+		if(req.query.mesa != null){
+			var query = {
+				mesa: req.query.mesa
+			}
+
+			mongo.connect('mongodb://localhost:27017/site', function(err, db) {
+				db.collection('pedidos').find(query).toArray(function(err, doc){
+					if (err) throw err;
+
+					console.dir(doc);
+					res.json(doc);
+					return db.close();
+				});
+			});
+		} else {
+			var query = {}
+
+			mongo.connect('mongodb://localhost:27017/site', function(err, db) {
+				db.collection('pedidos').find(query).sort({'hora':1}).toArray(function(err, doc){
+					if (err) throw err;
+
+					var mesa = [];
+
+					for(var i = 0; i < doc.length; i++){
+						if(!doc[i].finalizado){
+							mesa.push(doc[i].mesa);
+						}
+					}
+
+					console.dir(mesa);
+					res.json(mesa);
+					return db.close();
+				});
+			});
+		}	
+	});
+
+	app.get('/entregue', function(req, res){
+		
+		var query = {
+			mesa: req.query.mesa
+		}
+
+		var update = {
+
+			chop: 0,
+
+			refri: 0,
+
+			agua: 0,
+
+			mesa: req.query.mesa,
+
+			hora: new Date(),
+
+			finalizado: true
+		}
 
 		mongo.connect('mongodb://localhost:27017/site', function(err, db) {
-			db.collection('pedidos').findOne(function(err, doc) {
-        		if(err) throw err;
+			db.collection('pedidos').update(query, update, {upsert: true}, function(err, data){
+				if (err) throw err;
 
-        		if (!doc) {
-		            console.dir("No document found");
-		            res.end();
-		            return db.close();
-		        }
-
-		        res.end();
-				return db.close();
-		    });
+		        console.log("Pedido entregue");
+		        res.send('Pedido entregue!');
+		        return db.close();
+			});
 		});
-
+	
 	});
 
 
 	app.get('/pedido', function(req, res){
 
 		var query = {
-			// mesa: req.query.mesa
+			mesa: req.query.mesa
 		}
 
 		var update = {
-			pedido: [
-				{
-					// 'chop': req.body.chop
-					'chop': 3
-				},{
-					// 'refri': req.body.refri
-					'refri': 2
-				},{
-					// 'agua': req.body.agua
-					'agua': 0
-				}
-			],
 
-			finalizado: false
+			$inc: {
+				// 'chop': req.body.chop,
+				chop: 1,
+				// 'refri': req.body.refri
+				refri: 2,
+				// 'agua': req.body.agua
+				agua: 0
+			},
+
+			$set: {
+
+				mesa: req.query.mesa,
+
+				hora: new Date(),
+
+				finalizado: false
+			}
+
 		}
 
 		mongo.connect('mongodb://localhost:27017/site', function(err, db) {
@@ -55,7 +113,7 @@ module.exports = function(app){
 				if (err) throw err;
 
 		        console.log("Pedido feito");
-		        res.end();
+		        res.send('Pedido Feito!');
 		        return db.close();
 			});
 		});
@@ -67,7 +125,7 @@ module.exports = function(app){
 			name: "Ambev"
 		});
 	});
-	
+
 	app.get('/test', function(req, res){
 		console.log('ajax working');
 		var array = [1,2,3,4,5];
