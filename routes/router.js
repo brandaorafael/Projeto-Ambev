@@ -13,10 +13,6 @@ module.exports = function(app){
 		            console.dir("No document found");
 		            return db.close();
 		        }
-
-		        var decipher = crypto.createDecipher(algorithm, doc['_id']);
-		        var decrypted = decipher.update(encrypted_message, 'hex', 'utf8') + decipher.final('utf8');
-		        console.log("Answer: " + decrypted);
 		        return db.close();
 		    });
 		});
@@ -34,10 +30,10 @@ module.exports = function(app){
 			pedido: [
 				{
 					// 'chop': req.body.chop
-					'chop': 3
+					'chop': 0
 				},{
 					// 'refri': req.body.refri
-					'refri': 2
+					'refri': 0
 				},{
 					// 'agua': req.body.agua
 					'agua': 0
@@ -52,6 +48,8 @@ module.exports = function(app){
 				if (err) throw err;
 
 		        console.log("Pedido feito");
+		        res.send('Pedido Feito!' +
+		        	'Seu pedido foi de ' + update.pedido[0].chop + ' chops, ' + update.pedido[1].refri + ' refri e ' + update.pedido[2].agua + ' agua');
 		        return db.close();
 			});
 		});
@@ -63,7 +61,7 @@ module.exports = function(app){
 			name: "Ambev"
 		});
 	});
-	
+
 	app.get('/test', function(req, res){
 		res.render('index.ejs', {
 			name: req.query.name
