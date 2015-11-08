@@ -44,41 +44,35 @@ module.exports = function(app){
 
 	app.get('/entregue', function(req, res){
 		
-		if(req.query.mesa != null){
-			var query = {
-				mesa: req.query.mesa
-			}
+		var query = {
+			mesa: req.query.mesa
+		}
 
-			mongo.connect('mongodb://localhost:27017/site', function(err, db) {
-				db.collection('pedidos').find(query).toArray(function(err, doc){
-					if (err) throw err;
+		var update = {
 
-					console.dir(doc);
-					res.json(doc);
-					return db.close();
-				});
+			chop: 0,
+
+			refri: 0,
+
+			agua: 0,
+
+			mesa: req.query.mesa,
+
+			hora: new Date(),
+
+			finalizado: true
+		}
+
+		mongo.connect('mongodb://localhost:27017/site', function(err, db) {
+			db.collection('pedidos').update(query, update, {upsert: true}, function(err, data){
+				if (err) throw err;
+
+		        console.log("Pedido entregue");
+		        res.send('Pedido entregue!');
+		        return db.close();
 			});
-		} else {
-			var query = {}
-
-			mongo.connect('mongodb://localhost:27017/site', function(err, db) {
-				db.collection('pedidos').find(query).sort({'hora':1}).toArray(function(err, doc){
-					if (err) throw err;
-
-					var mesa = [];
-
-					for(var i = 0; i < doc.length; i++){
-						if(!doc[i].finalizado){
-							mesa.push(doc[i].mesa);
-						}
-					}
-
-					console.dir(mesa);
-					res.json(mesa);
-					return db.close();
-				});
-			});
-		}	
+		});
+	
 	});
 
 
@@ -100,7 +94,7 @@ module.exports = function(app){
 			},
 
 			$set: {
-				
+
 				mesa: req.query.mesa,
 
 				hora: new Date(),
@@ -115,8 +109,7 @@ module.exports = function(app){
 				if (err) throw err;
 
 		        console.log("Pedido feito");
-		        res.send('Pedido Feito!' +
-		        	'Seu pedido foi de ' + update.chop + ' chops, ' + update.refri + ' refri e ' + update.agua + ' agua');
+		        res.send('Pedido Feito!');
 		        return db.close();
 			});
 		});
