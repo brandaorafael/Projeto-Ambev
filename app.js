@@ -16,8 +16,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
-require(__dirname + '/routes/router.js')(app, cloudant_session);
-
 var server = http.createServer(app).listen(3000, function(){
 	console.log("Server is on, listening on: 3000");
 })
