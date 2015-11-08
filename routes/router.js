@@ -1,11 +1,6 @@
 module.exports = function(app){
-	var mysql = require('mysql');
-	var connection = mysql.createConnection({
-		host: 'localhost',
-		user: 'root',
-		password: '',
-		database: 'hack-ambev'
-	});
+
+	var mongo = require('mongodb').MongoClient;
 
 	app.get('/mesas', function(req, res){
 		res.render('mesas.ejs', {
@@ -13,36 +8,66 @@ module.exports = function(app){
 		});
 	});
 	app.get('/check', function(req, res){
-		connection.connect(function(err){
-			if(err){
-				console.log("Error connecting");
-				res.end();
-			}
-			connection.query('SELECT quantidade, nome_produto, mesa_id, bar_id FROM pedidos WHERE entregue = 0', function(err, results, fields){
-				if(err){
-					console.log("Error querying the pedidos table.");
-					res.end()
-				}
-				console.log(results);
-				res.send(results);
-			});	
+
+		mongo.connect('mongodb://localhost:27017/site', function(err, db) {
+			db.collection('pedidos').findOne(function(err, doc) {
+        		if(err) throw err;
+
+        		if (!doc) {
+		            console.dir("No document found");
+		            return db.close();
+		        }
+
+		        var decipher = crypto.createDecipher(algorithm, doc['_id']);
+		        var decrypted = decipher.update(encrypted_message, 'hex', 'utf8') + decipher.final('utf8');
+		        console.log("Answer: " + decrypted);
+		        return db.close();
+		    });
 		});
+
+	});
+
+
+	app.get('/pedido', function(req, res){
+
+		var query = {
+			// mesa: req.query.mesa
+		}
+
+		var update = {
+			pedido: [
+				{
+					// 'chop': req.body.chop
+					'chop': 3
+				},{
+					// 'refri': req.body.refri
+					'refri': 2
+				},{
+					// 'agua': req.body.agua
+					'agua': 0
+				}
+			],
+
+			finalizado: false
+		}
+
+		mongo.connect('mongodb://localhost:27017/site', function(err, db) {
+			db.collection('pedidos').update(query, update, {upsert: true}, function(err, data){
+				if (err) throw err;
+
+		        console.log("Pedido feito");
+		        return db.close();
+			});
+		});
+
 	});
 
 	app.get('/', function(req, res){
 		res.render('index.ejs', {
 			name: "Ambev"
 		});
-		// connection.connect(function(err) {
-		//   	if (err) {
-		//     	console.error('error connecting: ' + err.stack);
-		//     	return;
-		//   	}
-
-		//   	console.log('connected as id ' + connection.threadId);
-		// });
-
 	});
+	
 	app.get('/test', function(req, res){
 		res.render('index.ejs', {
 			name: req.query.name
