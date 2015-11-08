@@ -4,4 +4,9 @@ module.exports = function(app){
 			name: "Ambev"
 		});
 	});
+	app.get('/test', function(req, res){
+		res.render('index.ejs', {
+			name: req.query.name
+		});
+	});
 }
