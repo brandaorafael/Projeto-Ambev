@@ -39,7 +39,7 @@ module.exports = function(app){
 					}
 
 					console.dir(mesa);
-					res.json(mesa);
+					res.send(mesa);
 					return db.close();
 				});
 			});
@@ -80,26 +80,25 @@ module.exports = function(app){
 	});
 
 
-	app.get('/pedido', function(req, res){
-
+	app.post('/pedido', function(req, res){
 		var query = {
-			mesa: req.query.mesa
+			mesa: req.body.mesa
 		}
 
 		var update = {
 
 			$inc: {
 				// 'chop': req.body.chop,
-				chop: 1,
+				chop: parseInt(req.body.demo3[0]),
 				// 'refri': req.body.refri
-				refri: 2,
+				refri: parseInt(req.body.demo3[1]),
 				// 'agua': req.body.agua
-				agua: 0
+				agua: parseInt(req.body.demo3[2])
 			},
 
 			$set: {
 
-				mesa: req.query.mesa,
+				mesa: req.body.mesa,
 
 				hora: new Date(),
 
@@ -121,8 +120,10 @@ module.exports = function(app){
 	});
 
 	app.get('/', function(req, res){
+		var query = req.query.mesa;
+
 		res.render('index.ejs', {
-			name: "Ambev"
+			mesa: query
 		});
 	});
 

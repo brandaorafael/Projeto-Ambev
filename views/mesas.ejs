@@ -14,22 +14,65 @@
 	<script>
 		$(document).ready(function(){
 			console.log('ready');
-			$.get('/test', function(){
+			
+			setInterval(function(){
+				$.get('/check', function(){
 					// alert("hue");
 				})
 			.done(function(data){
 				// alert("second success");
-				for (var i = 0; i < data.length ; i++) {
-					var name = "#mesa" + data[i];
-					console.log(name);
-					$(name).addClass("btn-danger");
-				};
+				if(data){
+					console.log(data);
+					for (var i = 0; i < data.length ; i++) {
+						if(data[i]){
+							var name = "#mesa" + data[i];
+							console.log(name);
+							$(name).removeClass("btn-primary").addClass("btn-danger");
+						}
+					};
+				}
 				// $("#mesa1").addClass("btn-danger");
 			})
-			// setInterval(function(){
+			}, 100);
+		$('#myModal').on('show.bs.modal', function (event) {
+		  var modal = $(this);
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('mesa') // Extract info from data-* attributes
+		  console.log(recipient);
+		  var url = '/check?mesa=' + recipient;
 
-			// }, 20000);
+		  $.get(url, function(){})
+		  .done(function(data){
+		  	console.log(data);
+		  	var sum = data[0]["chop"] + data[0]["agua"] + data[0]["refri"];
+		  	console.log(sum);
+			modal.find('.modal-title').text('Mesa ' + recipient);
+			if(data[0]["chop"] > 0){
+				$("#row-chop").addClass("danger");
+			}
+		  	$("#chop-qty").html(data[0]["chop"]);
+		  	if(data[0]["refri"] > 0){
+				$("#row-refri").addClass("danger");
+			}
+		  	$("#refri-qty").html(data[0]["refri"]);
+		  	if(data[0]["agua"] > 0){
+				$("#row-agua").addClass("danger");
+			}
+		  	$("#agua-qty").html(data[0]["agua"]);
+
+		  });
+
+		  $('#myModal').on('hidden.bs.modal', function(){
+		  	url = '/entregue?mesa=' + recipient;
+		  $.get(url, function(){})
+		  .done(function(data){
+		  	location.reload();
+		  });
+		  })
+
 		});
+		});
+		
 	</script>
 </head>
 <body>
@@ -51,49 +94,49 @@
 		<div class="row">
 		  <div class="col-md-3">
 		  	<!-- <div class="mesa"> 1</div> -->
-		  	<button id="mesa1" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 1</button>
+		  	<button id="mesa1" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal" data-mesa="1">Mesa 1</button>
 		  	</div>
 		  <div class="col-md-3">
 		  	<!-- <div class="mesa"> 2</div> -->
-		  	<button id="mesa2" type="button" class="btn btn-danger center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 2</button>
+		  	<button id="mesa2" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal" data-mesa="2">Mesa 2</button>
 		  </div>
 		  <div class="col-md-3">
-		  	<button id="mesa3" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 3</button>
+		  	<button id="mesa3" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal" data-mesa="3">Mesa 3</button>
 		  </div>
   		  <div class="col-md-3">
-		  	<button id="mesa4" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal">Mesa 4</button>
+		  	<button id="mesa4" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 10px;" data-toggle="modal" data-target="#myModal" data-mesa="4">Mesa 4</button>
 		  </div>
 		</div>
 		<div class="row">
 		  <div class="col-md-3">
 		  	<!-- <div class="mesa"> 1</div> -->
-		  	<button id="mesa5" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 5</button>
+		  	<button id="mesa5" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal" data-mesa="5">Mesa 5</button>
 		  	</div>
 		  <div class="col-md-3">
 		  	<!-- <div class="mesa"> 2</div> -->
-		  	<button id="mesa6" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 6</button>
+		  	<button id="mesa6" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal" data-mesa="6">Mesa 6</button>
 		  </div>
 		  <div class="col-md-3">
-		  	<button id="mesa7" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 7</button>
+		  	<button id="mesa7" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal" data-mesa="7">Mesa 7</button>
 		  </div>
   		  <div class="col-md-3">
-		  	<button id="mesa8" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 8</button>
+		  	<button id="mesa8" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal" data-mesa="8">Mesa 8</button>
 		  </div>
 		</div>
 		<div class="row">
 		  <div class="col-md-3">
 		  	<!-- <div class="mesa"> 1</div> -->
-		  	<button id="mesa9" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 9</button>
+		  	<button id="mesa9" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal" data-mesa="9">Mesa 9</button>
 		  	</div>
 		  <div class="col-md-3">
 		  	<!-- <div class="mesa"> 2</div> -->
-		  	<button id="mesa10" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 10</button>
+		  	<button id="mesa10" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal" data-mesa="10">Mesa 10</button>
 		  </div>
 		  <div class="col-md-3">
-		  	<button id="mesa11" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 11</button>
+		  	<button id="mesa11" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal" data-mesa="11">Mesa 11</button>
 		  </div>
   		  <div class="col-md-3">
-		  	<button id="mesa12" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal">Mesa 12</button>
+		  	<button id="mesa12" type="button" class="btn btn-primary center-block" style="border-radius: 0px; width: 200px; height: 200px; margin-top: 30px;" data-toggle="modal" data-target="#myModal" data-mesa="12">Mesa 12</button>
 		  </div>
 		</div>
 	</div>
@@ -106,7 +149,7 @@
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title"><%=mesa_id%></h4>
+	          <h4 class="modal-title">Mesa 1</h4>
 	        </div>
 	        <div class="modal-body">
 	          <table class="table table-condensed">
@@ -117,25 +160,29 @@
 	          		</tr>
 	          	</thead>
 	          	<tbody>
-	          		<tr class="danger">
+	          		<tr id="row-chop" class="active">
 	          			<td>Chopp Brahma</td>
-	          			<td>10</td>
+	          			<td id="chop-qty">10</td>
 	          		</tr>
-	          		<tr class="active">
+	          		<tr id="row-refri" class="active">
 	          			<td>Guaraná Antartica</td>
-	          			<td>1</td>
+	          			<td id="refri-qty">1</td>
+	          		</tr>
+	          		<tr id="row-agua" class="active">
+	          			<td>Água</td>
+	          			<td id="agua-qty">1</td>
 	          		</tr>
 	          	</tbody>
 	          </table>
 	        </div>
 	        <div class="modal-footer">
-	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	          <button type="button" class="btn btn-success" data-dismiss="modal">Entregue!</button>
 	        </div>
 	      </div>
 	      
 	    </div>
 	</div>
-	
+
 
 </body>
 </html>

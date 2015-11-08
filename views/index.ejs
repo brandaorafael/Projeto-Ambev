@@ -1,9 +1,217 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>BreJá!</title>
-</head>
-<body>
-Hi <%=name%>!
-</body>
-</html>
+<html lang="en"><head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #F24452;">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand" href="#" style="color:#F24452">JetDrinks - Botirama</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true">
+          
+          
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      
+
+    </div> <!-- /container -->
+
+<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+<form action="/pedido" method="post">
+            <div class="panel panel-default">
+                <div class="panel-heading c-list">
+                    <span class="title">Contacts</span>
+                    <ul class="pull-right c-controls">
+                        <li><a href="#cant-do-all-the-work-for-you" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add Contact"><i class="glyphicon glyphicon-plus"></i></a></li>
+                        <li><a href="#" class="hide-search" data-command="toggle-search" data-toggle="tooltip" data-placement="top" title="" data-original-title="Toggle Search"><i class="fa fa-ellipsis-v"></i></a></li>
+                    </ul>
+                </div>
+                
+                <div class="row" style="display: none;">
+                    <div class="col-xs-12">
+                        <div class="input-group c-search">
+                            <input type="text" class="form-control" id="contact-list-search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="list-group" id="contact-list">
+                    <li class="list-group-item">
+                        <div class="col-xs-3 col-sm-3">
+                            <img src="https://www.choppbrahmaexpress.com.br/upload/images/563cc901dd547.jpg" alt="Scott Stevens" class="img-responsive img-circle">
+                        </div>
+                        <div class="col-xs-9 col-sm-9">
+                            <span class="name">CHOPP BRAHMA BARRIL 300ml</span><br>
+                        </div>
+                        <div class="clearfix">
+<div class="col-xs-12 col-sm-12">
+              <div class="input-group bootstrap-touchspin">
+<table><tbody><tr><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="removeOne(1)">-</button></span></td>
+<td class="col-sm-3" style="padding:0"><span><input id="textInput1" type="text" value="0" name="demo3" class="form-control" style="display: block;"></span>
+</td><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button" onclick="addOne(1)">+</button></span>
+
+</td>
+<td class="col-sm-7"><input type="hidden" id="price1" value="7.5"><span style="display: block;">x R$ 7,50</span></td></tr></tbody></table>
+</div>
+            </div>
+</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="col-xs-3 col-sm-3">
+                            <img src="http://images.tcdn.com.br/img/img_prod/268642/jogo_06_copos_chopp_brahma_black_430ml_10337_1_20130418114829.jpg" alt="Seth Frazier" class="img-responsive img-circle">
+                        </div>
+                        <div class="col-xs-9 col-sm-9">
+                            <span class="name">CHOPP BRAHMA BLACK 430ml</span><br>
+                        </div>
+                        <div class="clearfix">
+<div class="col-xs-12 col-sm-12">
+              <div class="input-group bootstrap-touchspin">
+<table><tbody><tr><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="removeOne(2)">-</button></span></td>
+<td class="col-sm-3"  style="padding:0"><span><input id="textInput2" type="text" value="0" name="demo3" class="form-control" style="display: block;"></span>
+</td><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button" onclick="addOne(2)">+</button></span>
+
+</td>
+<td class="col-sm-7"><input type="hidden" id="price2" value="7.5"><span style="display: block;">x R$ 7,50</span></td></tr></tbody></table>
+</div>
+            </div>
+</div>
+
+
+
+
+
+
+                    </li>
+                    <li class="list-group-item">
+                        <div class="col-xs-3 col-sm-3">
+                            <img src="http://thumbs.buscape.com.br/refrigerante/guarana-antarctica-lata-350-ml_200x200-PU61bb3_1.jpg" alt="Jean Myers" class="img-responsive img-circle">
+                        </div>
+                        <div class="col-xs-9 col-sm-9">
+                            <span class="name">GUARANÁ ANTARTICA LATA 350ml</span><br>
+                        </div>
+                        <div class="clearfix">
+
+
+
+<div class="col-xs-12 col-sm-12">
+              <div class="input-group bootstrap-touchspin">
+<table><tbody><tr><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="removeOne(3)">-</button></span></td>
+<td class="col-sm-3"  style="padding:0"><span><input id="textInput3" type="text" value="0" name="demo3" class="form-control" style="display: block;"></span>
+</td><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button" onclick="addOne(3)">+</button></span>
+
+</td>
+<td class="col-sm-7"><input type="hidden" id="price3" value="5.0"><span style="display: block;">x R$ 5,00</span></td></tr></tbody></table>
+</div>
+            </div>
+
+
+
+</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="col-xs-3 col-sm-3">
+                            <img src="http://thumbs.buscape.com.br/refrigerante/pepsi-lata-350-ml_200x200-PU61d72_1.jpg" alt="Todd Shelton" class="img-responsive img-circle">
+                        </div>
+                        <div class="col-xs-9 col-sm-9">
+				<span class="name">PEPSI LATA 350ml</span>
+                        </div>
+                        <div class="clearfix">
+
+<div class="col-xs-12 col-sm-12">
+              <div class="input-group bootstrap-touchspin">
+<table><tbody><tr><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="removeOne(4)">-</button></span></td>
+<td class="col-sm-3" style="padding:0"><span><input id="textInput4" type="text" value="" name="demo3" class="form-control" style="display: block;"></span>
+</td><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button" onclick="addOne(4)">+</button></span>
+
+</td>
+<td class="col-sm-7"><input type="hidden" id="price4" value="5.00"><span style="display: block;">x R$ 5,00</span></td></tr></tbody></table>
+</div>
+            </div>
+
+
+</div>
+                    </li>
+<li><br><br><br><br><br></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+<footer class="footer navbar-fixed-bottom navbar-header" style="background:#F24452;padding:16px">
+      <div class="container ">
+        <p class="text-muted">
+<table><tr>
+<td><a class="btn btn-default btn-lg" href="#" role="button">Total<span id = "totalSpan"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><input class="btn btn-primary btn-lg" href="#" role="button" style="background-color:#30df97" type="submit" value="Enviar Pedido"></td>
+<input type="hidden" name="mesa" value="<%=mesa%>">
+</tr>
+</table>
+</p>
+      </div>
+    </footer>
+</form>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+
+	<script>
+
+
+var total =0;
+
+		function addOne(id){
+			var textInput = document.getElementById("textInput"+id);
+			textInput.value = Number(textInput.value) + 1;
+
+			var price = document.getElementById("price"+id);
+			total += Number(price.value);
+			updateTotalText();
+		}
+
+		function removeOne(id){
+			var textInput = document.getElementById("textInput"+id);
+			textInput.value = Number(textInput.value) - 1;
+
+			var price = document.getElementById("price"+id);
+			total -= Number(price.value);
+			updateTotalText();
+		}
+
+		function updateTotalText(){
+			var totalSpan = document.getElementById("totalSpan");
+			totalSpan.innerHTML = " R$ "+total;
+		}
+
+		function order(id){
+			//place order
+		}
+
+	</script>
+
+
+
+
+
+
+</body></html>
