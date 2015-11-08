@@ -7,7 +7,11 @@ module.exports = function(app){
 		database: 'hack-ambev'
 	});
 
-
+	app.get('/mesas', function(req, res){
+		res.render('mesas.ejs', {
+			mesa_id: 'Mesa 1'
+		});
+	});
 	app.get('/check', function(req, res){
 		connection.connect(function(err){
 			if(err){
