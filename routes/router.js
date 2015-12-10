@@ -7,6 +7,7 @@ module.exports = function(app){
 			mesa_id: 'Mesa 1'
 		});
 	});
+	
 	app.get('/check', function(req, res){
 		
 		if(req.query.mesa != null){
