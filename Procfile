@@ -1,2 +1,2 @@
 web: npm install mongodb
-node app.js
+web: node app.js
