@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Rafael Melo de Oliveira (rafamelo12)",
+  "author": "Rafael Melo de Oliveira (rafamelo12), Rafael Augusto Brandão (brandaorafael)",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^0.8.5",
@@ -17,6 +17,6 @@
     "method-override": "^2.3.5",
     "morgan": "^1.6.1",
     "mysql": "^2.9.0",
-    "mongodb": "ˆ4.0.2"
+    "mongodb": "^4.0.2"
   }
 }
