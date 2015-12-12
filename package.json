@@ -16,6 +16,7 @@
     "express": "^4.13.3",
     "method-override": "^2.3.5",
     "morgan": "^1.6.1",
-    "mysql": "^2.9.0"
+    "mysql": "^2.9.0",
+    "mongodb": "ˆ4.0.2"
   }
 }

@@ -80,7 +80,6 @@ module.exports = function(app){
 	
 	});
 
-
 	app.post('/pedido', function(req, res){
 		var query = {
 			mesa: req.body.mesa
