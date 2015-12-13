@@ -20,6 +20,6 @@ app.use(methodOverride());
 
 require(__dirname + '/routes/router.js')(app);
 
-var server = http.createServer(app).listen(3000, function(){
+var server = http.createServer(app).listen(process.env.PORT || 3000, function(){
 	console.log("Server is on, listening on: 3000");
 })
