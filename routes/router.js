@@ -1,5 +1,7 @@
 module.exports = function(app){
 
+	var mongoURI = process.env.MONGOLAB_URI;
+
 	var mongo = require('mongodb').MongoClient;
 
 	app.get('/mesas', function(req, res){
@@ -15,7 +17,7 @@ module.exports = function(app){
 				mesa: req.query.mesa
 			}
 
-			mongo.connect('mongodb://localhost:27017/site', function(err, db) {
+			mongo.connect(mongoURI, function(err, db) {
 				db.collection('pedidos').find(query).toArray(function(err, doc){
 					if (err) throw err;
 
@@ -27,7 +29,7 @@ module.exports = function(app){
 		} else {
 			var query = {}
 
-			mongo.connect('mongodb://localhost:27017/site', function(err, db) {
+			mongo.connect(mongoURI, function(err, db) {
 				db.collection('pedidos').find(query).sort({'hora':1}).toArray(function(err, doc){
 					if (err) throw err;
 
@@ -68,7 +70,7 @@ module.exports = function(app){
 			finalizado: true
 		}
 
-		mongo.connect('mongodb://localhost:27017/site', function(err, db) {
+		mongo.connect(mongoURI, function(err, db) {
 			db.collection('pedidos').update(query, update, {upsert: true}, function(err, data){
 				if (err) throw err;
 
@@ -107,7 +109,7 @@ module.exports = function(app){
 
 		}
 
-		mongo.connect('mongodb://localhost:27017/site', function(err, db) {
+		mongo.connect(mongoURI, function(err, db) {
 			db.collection('pedidos').update(query, update, {upsert: true}, function(err, data){
 				if (err) throw err;
 
