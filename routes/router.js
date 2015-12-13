@@ -55,23 +55,8 @@ module.exports = function(app){
 			mesa: req.query.mesa
 		}
 
-		var update = {
-
-			chop: 0,
-
-			refri: 0,
-
-			agua: 0,
-
-			mesa: req.query.mesa,
-
-			hora: new Date(),
-
-			finalizado: true
-		}
-
 		mongo.connect(mongoURI, function(err, db) {
-			db.collection('pedidos').update(query, update, {upsert: true}, function(err, data){
+			db.collection('pedidos').remove(query, function(err, data){
 				if (err) throw err;
 
 		        console.log("Pedido entregue");
