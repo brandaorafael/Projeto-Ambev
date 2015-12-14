@@ -1,6 +1,6 @@
 module.exports = function(app){
 
-	var mongoURI = process.env.MONGOLAB_URI;
+	var mongoURI = 'mongodb://localhost:27017/site';
 
 	var mongo = require('mongodb').MongoClient;
 
