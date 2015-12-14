@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<html lang="pt" xml:lang="pt"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
@@ -6,165 +8,101 @@
 
   <body>
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #F24452;">
-      <div class="container">
-        <div class="navbar-header">
-          
-          <a class="navbar-brand" href="#" style="color:#F24452">JetDrinks - Botirama</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true">
-          
-          
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
 
-    <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      
-
-    </div> <!-- /container -->
-
-<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+	
+	
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <form action="/pedido" method="post">
             <div class="panel panel-default">
                 <div class="panel-heading c-list">
-                    <span class="title">Contacts</span>
-                    <ul class="pull-right c-controls">
-                        <li><a href="#cant-do-all-the-work-for-you" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add Contact"><i class="glyphicon glyphicon-plus"></i></a></li>
-                        <li><a href="#" class="hide-search" data-command="toggle-search" data-toggle="tooltip" data-placement="top" title="" data-original-title="Toggle Search"><i class="fa fa-ellipsis-v"></i></a></li>
-                    </ul>
+                    <h3><span class="title" style="color:#F24452">JetDrinks - Botirama</span></h3>
                 </div>
                 
-                <div class="row" style="display: none;">
-                    <div class="col-xs-12">
-                        <div class="input-group c-search">
-                            <input type="text" class="form-control" id="contact-list-search">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
-                            </span>
+</div>
+
+                 <div class="row" style=" border-top: solid; border-width: medium; border-width: 1px;padding-bottom:15px;padding-top:15px;">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="http://pbs.twimg.com/profile_images/631219625/Chopp_reasonably_small.JPG" class="img-responsive img-rounded">
                         </div>
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+						<div class="row "> 
+                            <div class="name" style="margin-left:15px;margin-right:15px;" ><span style=" color:#F24452;">CHOPP BRAHMA</span><span> (300ml)</span></div>
+							</div>
+							<div class="row" >
+							<div style="padding-left:15px;padding-right:15px;color:#3e8f3e;font-weight:bold">R$ 7,50</div>
+							</div>
+                        
+<span class="row" >
+              
+			  <button class="btn btn-default col-xs-4 col-sm-4 col-md-4 col-lg-4" type="button" onclick="removeOne(1)" style="font-size:100%;">-</button>
+				<input id="textInput1" type="text" value="0" name="demo3" class="btn col-xs-4 col-sm-4 col-md-4 col-lg-4" style="font-size:100%;">
+				<button class="btn btn-success col-xs-4 col-sm-4 col-md-4 col-lg-4" type="button" onclick="addOne(1)" style="font-size:100%;">+</button>
+				<input type="hidden" id="price1" value="7.5">
+            </span></div>
                     </div>
-                </div>
-                
-                <ul class="list-group" id="contact-list">
-                    <li class="list-group-item">
-                        <div class="col-xs-3 col-sm-3">
-                            <img src="https://www.choppbrahmaexpress.com.br/upload/images/563cc901dd547.jpg" alt="Scott Stevens" class="img-responsive img-circle">
+
+					
+					<div class="row" style=" border-top: solid; border-width: medium; border-width: 1px;padding-bottom:15px;padding-top:15px;">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="http://woodmassasesalgados.com.br/loja3/images/guarana-antarctica-lata.png" class="img-responsive img-rounded">
                         </div>
-                        <div class="col-xs-9 col-sm-9">
-                            <span class="name">CHOPP BRAHMA BARRIL 300ml</span><br>
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+						<div class="row "> 
+                            <div class="name" style="margin-left:15px;margin-right:15px;" ><span style=" color:#F24452;">GUARANÁ ANTARCTITA</span><span> (350ml)</span></div>
+							</div>
+							<div class="row" >
+							<div style="padding-left:15px;padding-right:15px;color:#3e8f3e;font-weight:bold">R$ 2,00</div>
+							</div>
+                        
+<span class="row" >
+              
+			  <button class="btn btn-default col-xs-4 col-sm-4 col-md-4 col-lg-4" type="button" onclick="removeOne(2)" style="font-size:100%;">-</button>
+				<input id="textInput2" type="text" value="0" name="demo3" class="btn col-xs-4 col-sm-4 col-md-4 col-lg-4" style="font-size:100%;">
+				<button class="btn btn-success col-xs-4 col-sm-4 col-md-4 col-lg-4" type="button" onclick="addOne(2)" style="font-size:100%;">+</button>
+				<input type="hidden" id="price2" value="2.0">
+            </span></div>
+                    </div>
+					
+					<div class="row" style=" border-top: solid; border-width: medium; border-width: 1px;padding-bottom:15px;padding-top:15px;">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="http://tse2.mm.bing.net/th?id=OIP.M0de15d85b860a293ca3a5ed61973abaao0&pid=15.1" class="img-responsive img-rounded">
                         </div>
-                        <div class="clearfix">
-<div class="col-xs-12 col-sm-12">
-              <div class="input-group bootstrap-touchspin">
-<table><tbody><tr><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="removeOne(1)">-</button></span></td>
-<td class="col-sm-3" style="padding:0"><span><input id="textInput1" type="text" value="0" name="demo3" class="form-control" style="display: block;"></span>
-</td><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button" onclick="addOne(1)">+</button></span>
-
-</td>
-<td class="col-sm-7"><input type="hidden" id="price1" value="7.5"><span style="display: block;">x R$ 7,50</span></td></tr></tbody></table>
-</div>
-            </div>
-</div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="col-xs-3 col-sm-3">
-                            <img src="http://images.tcdn.com.br/img/img_prod/268642/jogo_06_copos_chopp_brahma_black_430ml_10337_1_20130418114829.jpg" alt="Seth Frazier" class="img-responsive img-circle">
-                        </div>
-                        <div class="col-xs-9 col-sm-9">
-                            <span class="name">CHOPP BRAHMA BLACK 430ml</span><br>
-                        </div>
-                        <div class="clearfix">
-<div class="col-xs-12 col-sm-12">
-              <div class="input-group bootstrap-touchspin">
-<table><tbody><tr><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="removeOne(2)">-</button></span></td>
-<td class="col-sm-3"  style="padding:0"><span><input id="textInput2" type="text" value="0" name="demo3" class="form-control" style="display: block;"></span>
-</td><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button" onclick="addOne(2)">+</button></span>
-
-</td>
-<td class="col-sm-7"><input type="hidden" id="price2" value="7.5"><span style="display: block;">x R$ 7,50</span></td></tr></tbody></table>
-</div>
-            </div>
-</div>
-
-
-
-
-
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="col-xs-3 col-sm-3">
-                            <img src="http://thumbs.buscape.com.br/refrigerante/guarana-antarctica-lata-350-ml_200x200-PU61bb3_1.jpg" alt="Jean Myers" class="img-responsive img-circle">
-                        </div>
-                        <div class="col-xs-9 col-sm-9">
-                            <span class="name">GUARANÁ ANTARTICA LATA 350ml</span><br>
-                        </div>
-                        <div class="clearfix">
-
-
-
-<div class="col-xs-12 col-sm-12">
-              <div class="input-group bootstrap-touchspin">
-<table><tbody><tr><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="removeOne(3)">-</button></span></td>
-<td class="col-sm-3"  style="padding:0"><span><input id="textInput3" type="text" value="0" name="demo3" class="form-control" style="display: block;"></span>
-</td><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button" onclick="addOne(3)">+</button></span>
-
-</td>
-<td class="col-sm-7"><input type="hidden" id="price3" value="5.0"><span style="display: block;">x R$ 5,00</span></td></tr></tbody></table>
-</div>
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+						<div class="row "> 
+                            <div class="name" style="margin-left:15px;margin-right:15px;" ><span style=" color:#F24452;">ÁGUA</span><span> (500ml)</span></div>
+							</div>
+							<div class="row" >
+							<div style="padding-left:15px;padding-right:15px;color:#3e8f3e;font-weight:bold">R$ 2,00</div>
+							</div>
+                        
+<span class="row" >
+              
+			  <button class="btn btn-default col-xs-4 col-sm-4 col-md-4 col-lg-4" type="button" onclick="removeOne(3)" style="font-size:100%;">-</button>
+				<input id="textInput3" type="text" value="0" name="demo3" class="btn col-xs-4 col-sm-4 col-md-4 col-lg-4" style="font-size:100%;">
+				<button class="btn btn-success col-xs-4 col-sm-4 col-md-4 col-lg-4" type="button" onclick="addOne(3)" style="font-size:100%;">+</button>
+				<input type="hidden" id="price3" value="2.0">
+            </span></div>
+                    </div>
+					
+					
             </div>
 
+<div class="row" style="height:750px"></div>
 
+ <div class="container-fluid">
 
-</div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="col-xs-3 col-sm-3">
-                            <img src="http://thumbs.buscape.com.br/refrigerante/pepsi-lata-350-ml_200x200-PU61d72_1.jpg" alt="Todd Shelton" class="img-responsive img-circle">
-                        </div>
-                        <div class="col-xs-9 col-sm-9">
-				<span class="name">PEPSI LATA 350ml</span>
-                        </div>
-                        <div class="clearfix">
-
-<div class="col-xs-12 col-sm-12">
-              <div class="input-group bootstrap-touchspin">
-<table><tbody><tr><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button" onclick="removeOne(4)">-</button></span></td>
-<td class="col-sm-3" style="padding:0"><span><input id="textInput4" type="text" value="" name="demo3" class="form-control" style="display: block;"></span>
-</td><td class="col-sm-1"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button" onclick="addOne(4)">+</button></span>
-
-</td>
-<td class="col-sm-7"><input type="hidden" id="price4" value="5.00"><span style="display: block;">x R$ 5,00</span></td></tr></tbody></table>
-</div>
-            </div>
-
-
-</div>
-                    </li>
-<li><br><br><br><br><br></li>
-                </ul>
-            </div>
-        </div>
-
-
-
-
-<footer class="footer navbar-fixed-bottom navbar-header" style="background:#F24452;padding:16px">
-      <div class="container ">
-        <p class="text-muted">
-<table><tr>
-<td><a class="btn btn-default btn-lg" href="#" role="button">Total<span id = "totalSpan"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><input class="btn btn-primary btn-lg" href="#" role="button" style="background-color:#30df97" type="submit" value="Enviar Pedido"></td>
+     
+        
+<div class = "row"><div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"  >
+<footer class="footer navbar-fixed-bottom " style="background:#F24452;padding: 15px 15px 15px 15px;">
+<span class = "pull-left btn btn-lg" style="color:white;  ">Total<span id = "totalSpan"> R$ 0</span></span>
+<input class="btn btn-success btn-lg pull-right"  href="#" role="button" style="background-color:#30df97; font-size:100%;" type="submit" value="Enviar Pedido">
 <input type="hidden" name="mesa" value="<%=mesa%>">
-</tr>
-</table>
-</p>
-      </div>
+
     </footer>
+</div></div>
+      
+	</div>
 </form>
 
 
@@ -190,12 +128,15 @@ var total =0;
 		}
 
 		function removeOne(id){
-			var textInput = document.getElementById("textInput"+id);
+		var textInput = document.getElementById("textInput"+id);
+		if(Number(textInput.value)>=1){
+			
 			textInput.value = Number(textInput.value) - 1;
 
 			var price = document.getElementById("price"+id);
 			total -= Number(price.value);
-			updateTotalText();
+			updateTotalText();}
+			
 		}
 
 		function updateTotalText(){
