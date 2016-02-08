@@ -63,7 +63,7 @@
 		  });
 
 		  $('#myModal').on('hidden.bs.modal', function(){
-		  	url = '/v1/entregue?mesa=' + recipient;
+		  	url = '/v1/restaurante/entregue?mesa=' + recipient;
 		  $.get(url, function(){})
 		  .done(function(data){
 		  	location.reload();

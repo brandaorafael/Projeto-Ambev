@@ -1,6 +1,6 @@
 module.exports = function (moduleCliente){
   
-  controllers = moduleCliente.controllers;
+  var controllers = moduleCliente.controllers;
 
   return function(router){
     router.post("/cliente/pedido", function(req, res){

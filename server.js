@@ -15,19 +15,19 @@ module.exports = function(){
 	//Modulo Cliente
 	var cliente = {};
 	cliente.controllers = {};
-	cliente.controllers.pedido = require(__dirname + '/modulos/cliente/pedido/pedido-controller.js')(db);
+	cliente.controllers.pedido = require(__dirname + '/modules/cliente/pedido/pedido-controller.js')(db);
 
 	//Modulo Restaurante
 	var restaurante = {};
 	restaurante.controllers = {};
-	restaurante.controllers.check = require(__dirname + '/modulos/restaurante/check/check-controller.js')(db);
-	restaurante.controllers.entregue = require(__dirname + '/modulos/restaurante/entregue/entregue-controller.js')(db);
+	restaurante.controllers.check = require(__dirname + '/modules/restaurante/check/check-controller.js')(db);
+	restaurante.controllers.entregue = require(__dirname + '/modules/restaurante/entregue/entregue-controller.js')(db);
 
 	//Modulo Views
 	var views = {};
 	views.controllers = {};
-	views.controllers.home = require(__dirname + '/modulos/views/home/home-controller.js')(db);
-	views.controllers.mesas = require(__dirname + '/modulos/views/mesas/mesas-controller.js')(db);
+	views.controllers.home = require(__dirname + '/modules/views/home/home-controller.js')(db);
+	views.controllers.mesas = require(__dirname + '/modules/views/mesas/mesas-controller.js')(db);
 
 	//Rotas
 	var routes = {};

@@ -1,6 +1,6 @@
 module.exports = function (moduleRestaurante){
   
-  controllers = moduleRestaurante.controllers;
+  var controllers = moduleRestaurante.controllers;
 
   return function(router){
     router.get("/restaurante/check", function(req, res){

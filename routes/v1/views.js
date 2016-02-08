@@ -1,6 +1,6 @@
 module.exports = function (moduleViews){
   
-  controllers = moduleViews.controllers;
+  var controllers = moduleViews.controllers;
 
   return function(router){
     router.get("/", function(req, res){
