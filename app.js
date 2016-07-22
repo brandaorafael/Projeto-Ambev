@@ -1,25 +1,18 @@
-var express 		= require('express');
-var path 			= require('path');
-var http 			= require('http');
-var morgan         	= require('morgan');
-var bodyParser     	= require('body-parser');
-var methodOverride 	= require('method-override');
-// var bcrypt			= require('bcrypt');
-var app 			= express();
+var server = require(__dirname + '/server.js')();
+
+var app 			= server.app.express();
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 // app.engine('html', require('ejs').renderFile);
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(methodOverride());
+app.use(server.app.express.static(server.app.path.join(__dirname, 'public')));
+app.use(server.app.morgan('dev'));
+app.use(server.app.bodyParser.urlencoded({ extended: false }));
+app.use(server.app.bodyParser.json());
+app.use(server.app.methodOverride());
 
+server.router(app);
 
-
-require(__dirname + '/routes/router.js')(app);
-
-var server = http.createServer(app).listen(process.env.PORT || 3000, function(){
+return server.app.http.createServer(app).listen(process.env.PORT || 3000, function(){
 	console.log("Server is on, listening on: 3000");
-})
+});

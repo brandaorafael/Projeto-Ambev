@@ -16,7 +16,7 @@
 			console.log('ready');
 			
 			setInterval(function(){
-				$.get('/check', function(){
+				$.get('/v1/restaurante/check', function(){
 					// alert("hue");
 				})
 			.done(function(data){
@@ -39,7 +39,7 @@
 		  var button = $(event.relatedTarget) // Button that triggered the modal
 		  var recipient = button.data('mesa') // Extract info from data-* attributes
 		  console.log(recipient);
-		  var url = '/check?mesa=' + recipient;
+		  var url = '/v1/restaurante/check?mesa=' + recipient;
 
 		  $.get(url, function(){})
 		  .done(function(data){
@@ -63,7 +63,7 @@
 		  });
 
 		  $('#myModal').on('hidden.bs.modal', function(){
-		  	url = '/entregue?mesa=' + recipient;
+		  	url = '/v1/restaurante/entregue?mesa=' + recipient;
 		  $.get(url, function(){})
 		  .done(function(data){
 		  	location.reload();
